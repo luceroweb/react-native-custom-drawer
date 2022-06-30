@@ -2,6 +2,7 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import CustomDrawer from "../components/CustomDrawer";
+import Header from "../navigation/Header";
 import HomeScreen from "../screens/HomeScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import MessagesScreen from "../screens/MessagesScreen";
@@ -12,7 +13,6 @@ const Drawer = createDrawerNavigator();
 
 const AppStack = () => {
   const screenOptions = {
-    headerShown: false,
     drawerActiveBackgroundColor: "#aa18ea",
     drawerActiveTintColor: "#FFF",
     drawerInactiveTintColor: "#333",
@@ -28,7 +28,10 @@ const AppStack = () => {
 
   return (
     <Drawer.Navigator
-      screenOptions={screenOptions}
+      screenOptions={{
+        header: (props) => <Header {...props} />,
+        ...screenOptions,
+      }}
       drawerContent={(props) => <CustomDrawer {...props} />}
     >
       <Drawer.Screen
