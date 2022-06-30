@@ -1,13 +1,13 @@
 import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-const HomeScreen = ({ navigation }) => {
+const Header = ({ navigation }) => {
   const profileImage = require("../../assets/user-profile.jpg");
 
   return (
     <View style={styles.headerContainer}>
       <TouchableOpacity onPress={() => navigation.openDrawer()}>
-        <Ionicons name="menu" size={22} />
+        <Ionicons name="menu" size={30} style={styles.menuIcon} />
       </TouchableOpacity>
       <Text style={styles.headerText}>Custom Drawer App</Text>
       <TouchableOpacity onPress={() => navigation.openDrawer()}>
@@ -17,13 +17,16 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
-export default HomeScreen;
+export default Header;
 
 const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 20,
+  },
+  menuIcon: {
+    color: "purple",
   },
   headerText: {
     fontSize: 18,
